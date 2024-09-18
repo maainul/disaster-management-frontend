@@ -1,21 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Nav = () => {
-  const navigate = useNavigate();
-
-  const handleLoginClick = () => {
-    navigate("/login");
-  };
-
+const Header = () => {
   return (
     <>
-      <nav id="header" className="fixed w-full z-30 top-0 text-white">
-        <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+      <nav
+        id="header"
+        className="fixed w-full z-30 top-0 text-white bg-green-200"
+      >
+        <div className="w-9/12 container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
           <div className="pl-4 flex items-center">
-            <a
+            <Link
               className="toggleColour text-black no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-              href="#"
+              to="/"
             >
               <svg
                 className="h-8 fill-current inline"
@@ -36,7 +33,7 @@ const Nav = () => {
                 />
               </svg>
               LANDING
-            </a>
+            </Link>
           </div>
           <div className="block lg:hidden pr-4">
             <button
@@ -59,37 +56,46 @@ const Nav = () => {
           >
             <ul className="list-reset lg:flex justify-end flex-1 items-center">
               <li className="mr-3">
-                <a
+                <Link
+                  to="/crisis"
                   className="inline-block py-2 px-4 text-black font-bold no-underline"
-                  href="#"
                 >
                   Crisis
-                </a>
+                </Link>
               </li>
               <li className="mr-3">
-                <a
-                  className="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                  href="#"
+                <Link
+                  className="mx-auto lg:mx-0 hover:underline bg-green-600 text-white  font-bold rounded-lg mt-2 lg:mt-0 py-2 px-4 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+                  to="/donate"
                 >
                   Donate
-                </a>
+                </Link>
               </li>
               <li className="mr-3">
-                <a
+                <Link
                   className="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                  href="#"
+                  to="/volunteer"
                 >
                   Volunteer
-                </a>
+                </Link>
+              </li>
+              <li className="mr-3">
+                <Link
+                  className="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                  to="/volunteer"
+                >
+                  Volunteer
+                </Link>
+              </li>
+              <li className="mr-3">
+                <Link
+                  className="mx-auto lg:mx-0 hover:underline bg-green-600 text-white  font-bold rounded-lg mt-2 lg:mt-0 py-2 px-4 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+                  to="/login"
+                >
+                  Login
+                </Link>
               </li>
             </ul>
-            <button
-              id="navAction"
-              onClick={handleLoginClick}
-              className="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-            >
-              Login
-            </button>
           </div>
         </div>
         <hr className="border-b border-gray-100 opacity-25 my-0 py-0" />
@@ -98,4 +104,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Header;
